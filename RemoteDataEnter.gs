@@ -63,7 +63,7 @@ function EnterData(sheetName, ssID) {
   SpreadsheetApp.setActiveSpreadsheet(ss);
   
   // Set a cell to 'Importing' in the other spreadeheet to let users know that we are accesing it
-  SpreadsheetApp.getActive().getActiveSheet().getRange('Big BrotherG15').setValue('Importing');
+  SpreadsheetApp.getActive().getActiveSheet().getRange('Big Brother!G15').setValue('Importing');
   
   //Clear the last match data
   SpreadsheetApp.getActive().getActiveSheet().getRange(sheetName + '!H25:I44').clearContent();
@@ -97,7 +97,7 @@ function EnterData(sheetName, ssID) {
  SpreadsheetApp.getActiveSpreadsheet().getRange(sheetName + '!F3:F22').setValues([[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']]);
  
   // Set a cell to 'Safe' in the other spreadeheet to let users know that we are accesing it
-  SpreadsheetApp.getActive().getActiveSheet().getRange('Big BrotherG15').setValue('Safe');
+  SpreadsheetApp.getActive().getActiveSheet().getRange('Big Brother!G15').setValue('Safe');
 }
 
 
