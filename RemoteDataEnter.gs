@@ -42,7 +42,12 @@ function Sheet6(ssID) {
 
 // Import all sheets that we need to import from
 function masterEnter(ssID) {
-
+  var ss = SpreadsheetApp.openById(ssID);
+  SpreadsheetApp.setActiveSpreadsheet(ss);
+  
+  // Set a cell to 'Importing' in the other spreadeheet to let users know that we are accesing it
+  SpreadsheetApp.getActive().getActiveSheet().getRange('Big Brother!G15').setValue('Importing');
+  
   Sheet1(ssID);
 
   Sheet2(ssID);
@@ -55,15 +60,14 @@ function masterEnter(ssID) {
 
   Sheet6(ssID);
   
+  // Set a cell to 'Safe' in the other spreadeheet to let users know that we are accesing it
+  SpreadsheetApp.getActive().getActiveSheet().getRange('Big Brother!G15').setValue('Safe');
 }
 
 // REMOTELY, does this in another spreadsheet: Takes the match data from a given sheet name and puts it into the data by team sheet
 function EnterData(sheetName, ssID) {
   var ss = SpreadsheetApp.openById(ssID);
   SpreadsheetApp.setActiveSpreadsheet(ss);
-  
-  // Set a cell to 'Importing' in the other spreadeheet to let users know that we are accesing it
-  SpreadsheetApp.getActive().getActiveSheet().getRange('Big Brother!G15').setValue('Importing');
   
   //Clear the last match data
   SpreadsheetApp.getActive().getActiveSheet().getRange(sheetName + '!H25:I44').clearContent();
@@ -95,9 +99,6 @@ function EnterData(sheetName, ssID) {
   //Clear the "Value:" data
  SpreadsheetApp.getActiveSpreadsheet().getRange(sheetName + '!D3:D22').setValues([[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']]);
  SpreadsheetApp.getActiveSpreadsheet().getRange(sheetName + '!F3:F22').setValues([[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']]);
- 
-  // Set a cell to 'Safe' in the other spreadeheet to let users know that we are accesing it
-  SpreadsheetApp.getActive().getActiveSheet().getRange('Big Brother!G15').setValue('Safe');
 }
 
 
