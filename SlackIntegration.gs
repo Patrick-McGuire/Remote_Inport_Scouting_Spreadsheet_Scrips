@@ -1,6 +1,6 @@
 ///////////// All functions that deal with communicating with slack /////////////
 
-// Happens when every we get a command from slack. Acts acordingly
+// Happens when ever we get a command from slack. Acts acordingly
 function doPost(e) {
   SpreadsheetApp.getActiveSpreadsheet().getRange('Medium Brother!B3').setValue('Entering Data');
   post('Recived Command: ' + e.parameter.command);      
@@ -50,4 +50,5 @@ function post(text) {
   };
  
   return UrlFetchApp.fetch(webhookUrl, options)
-}
+} 
+    
