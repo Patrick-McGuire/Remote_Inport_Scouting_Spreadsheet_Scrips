@@ -11,9 +11,6 @@ function editOn(e) {
   if(eventURL == triggerURL) {    // If the trigger cell was edited
     // Enter the data remotly
     masterEnter();
-
-    // Reset the trigger cell
-    setValue(mediumBrother, 'B3', 'Done');
   }
 }
 
@@ -40,6 +37,9 @@ function masterEnter() {
   
   // Reset the active spreadsheet to this spreadsheet
   openSpreadsheet(thisSSID);
+  
+   // Reset the trigger cell
+   setValue(mediumBrother, 'B3', 'Done');
 }
 
 // REMOTELY, does this in another spreadsheet:
