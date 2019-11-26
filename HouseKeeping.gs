@@ -4,8 +4,8 @@ var inputs = 'Inputs';
 var cmdLogs = 'CMD Logs';
 // Other sheet:
 var red1 = 'Red 1';
-var red2 = 'Red 1';
-var red3 = 'Red 1';
+var red2 = 'Red 2';
+var red3 = 'Red 3';
 var blue1 = 'Blue 1';
 var blue2 = 'Blue 2';
 var blue3 = 'Blue 3';
