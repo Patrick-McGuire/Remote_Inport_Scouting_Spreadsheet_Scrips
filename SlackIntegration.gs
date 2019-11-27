@@ -44,7 +44,7 @@ function doPost(e) {
 
 // Post a message to slack
 function post(text) {
-  var webhookUrl = getSlackWebookURL();
+  var webhookUrl = getSlackWebhookURL();
   var payload = {
     'text' : text,
   }
@@ -58,8 +58,8 @@ function post(text) {
 }
 
 // gets the incoming webhook url (as listed din the inputs sheet)
-function getSlackWebookURL() {
-  return getValue(inputs, 'C5');
+function getSlackWebhookURL() {
+  return getValue(inputs, 'C4');
 }
 
 

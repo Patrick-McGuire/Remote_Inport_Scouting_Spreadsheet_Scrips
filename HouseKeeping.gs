@@ -2,6 +2,7 @@
 var mediumBrother = 'Medium Brother';
 var inputs = 'Inputs';
 var cmdLogs = 'CMD Logs';
+var tbaImport = 'TBA Import';
 // Other sheet:
 var red1 = 'Red 1';
 var red2 = 'Red 2';
@@ -12,8 +13,13 @@ var blue3 = 'Blue 3';
 var bigBrother = 'Big Brother';
 var dataByTeam = 'Data By Team';
 // Commands
-var enterDataCommand = '/enterdata'
+var enterDataCommand = '/enterdata';
+var importTeamsCommand = '/importteams';
+var importTeamsMatchesCommand = '/importteamsmatches';
+var importmatchScheduleCommand = 'importschedule';
+var importmatchTimesCommand = 'importmatchtimes';
 var testCommand = '/test1254';
+
 
 // Open a spreadsheed by it's ID
 function openSpreadsheet(ssID) {
