@@ -26,11 +26,34 @@ function doPost(e) {
   if(command == enterDataCommand) {
     // Let anyone in this sheet know that we are running a function
     setValue(mediumBrother, 'B3', 'Entering Data');
-    
     // Enter the data remotly
     sendCommand(enterDataCommand);
-    
     setValue(mediumBrother, 'B3', "Done");
+    
+  } else if(command == importTeamsCommand){
+    // Let anyone in this sheet know that we are running a function
+    setValue(mediumBrother, 'B3', 'Importing');
+    // Enter the data remotly
+    sendCommand(importTeamsCommand);
+    setValue(tbaImport, 'B3', "Done");
+  } else if(command == importTeamsMatchesCommand){
+    // Let anyone in this sheet know that we are running a function
+    setValue(mediumBrother, 'D3', 'Importing');
+    // Enter the data remotly
+    sendCommand(importTeamsMatchesCommand);
+    setValue(tbaImport, 'D3', "Done");
+  } else if(command == importmatchScheduleCommand){
+    // Let anyone in this sheet know that we are running a function
+    setValue(mediumBrother, 'B7', 'Importing');
+    // Enter the data remotly
+    sendCommand(importmatchScheduleCommand);
+    setValue(tbaImport, 'B7', "Done");
+  } else if(command == importmatchTimesCommand){
+    // Let anyone in this sheet know that we are running a function
+    setValue(mediumBrother, 'D7', 'Importing');
+    // Enter the data remotly
+    sendCommand(importmatchTimesCommand);
+    setValue(tbaImport, 'D7', "Done");
   } else if(command == testCommand) {
     post('such test much wow');
   } else {
