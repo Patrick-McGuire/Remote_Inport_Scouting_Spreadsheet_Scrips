@@ -18,10 +18,7 @@ function doPost(e) {
   var endRow = logCount + 3;
 
   // Post time, date, and command data into logs sheet
-  setValue(cmdLogs, 'B' + endRow, command);
-  setValue(cmdLogs, 'C' + endRow, text);
-  setValue(cmdLogs, 'D' + endRow, time);
-  setValue(cmdLogs, 'E' + endRow, date);
+  setValues(cmdLogs, 'B' + endRow, [command, text, time, date]);
     
   if(command == enterDataCommand) {
     // Let anyone in this sheet know that we are running a function
