@@ -18,7 +18,7 @@ function doPost(e) {
   var endRow = logCount + 3;
 
   // Post time, date, and command data into logs sheet
-  setValues(cmdLogs, 'B' + endRow, [command, text, time, date]);
+  setValues(cmdLogs, 'B' + endRow, 'E' + endRow, [[command, text, time, date]]);
     
   if(command == enterDataCommand) {
     // Let anyone in this sheet know that we are running a function
@@ -81,7 +81,6 @@ function post(text) {
 function getSlackWebhookURL() {
   return getValue(inputs, 'C4');
 }
-
 
 
 
