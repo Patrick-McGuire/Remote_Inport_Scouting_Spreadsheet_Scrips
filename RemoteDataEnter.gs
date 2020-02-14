@@ -7,10 +7,10 @@ var matchScheduleURL =  '/gviz/tq?headers=-1&transpose=0&merge=rows&gid=42580364
 var matchTimesURL =     '/gviz/tq?headers=-1&transpose=0&merge=rows&gid=425803645&range=D7';
 
 // Detects if the cell that was just edited was the cell that triggers remote import
-function editOn(e) {
+function onEditE(e) {
   // Get the URL for the cell that was edited
   var eventURL = e.range.getDataSourceUrl();
-  
+  setValue(inputs, 'A1', eventURL);
   if(eventURL == linkBegining + getSheetID() + dataEnterURL) {
     // Enter the data remotly
     sendCommand(enterDataCommand);
