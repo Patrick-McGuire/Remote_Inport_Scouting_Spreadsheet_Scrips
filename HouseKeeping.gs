@@ -3,15 +3,7 @@ var mediumBrother = 'Medium Brother';
 var inputs = 'Inputs';
 var cmdLogs = 'CMD Logs';
 var tbaImport = 'TBA Import';
-// Other sheet:
-var red1 = 'Red 1';
-var red2 = 'Red 2';
-var red3 = 'Red 3';
-var blue1 = 'Blue 1';
-var blue2 = 'Blue 2';
-var blue3 = 'Blue 3';
-var bigBrother = 'Big Brother';
-var dataByTeam = 'Data By Team';
+var manager = 'Manager';
 // Commands
 var enterDataCommand = '/enterdata';
 var importTeamsCommand = '/importteams';
@@ -21,6 +13,28 @@ var importmatchTimesCommand = '/importmatchtimes';
 var testCommand = '/test1254';
 
 
+////// General functions for ease of use //////
+
+function openUrl( url ){
+  var html = HtmlService.createHtmlOutput('<html><script>'
+  +'window.close = function(){window.setTimeout(function(){google.script.host.close()},9)};'
+  +'var a = document.createElement("a"); a.href="'+url+'"; a.target="_blank";'
+  +'if(document.createEvent){'
+  +'  var event=document.createEvent("MouseEvents");'
+  +'  if(navigator.userAgent.toLowerCase().indexOf("firefox")>-1){window.document.body.append(a)}'                          
+  +'  event.initEvent("click",true,true); a.dispatchEvent(event);'
+  +'}else{ a.click() }'
+  +'close();'
+  +'</script>'
+  // Offer URL as clickable link in case above code fails.
+  +'<body style="word-break:break-word;font-family:sans-serif;">Failed to open automatically. <a href="'+url+'" target="_blank" onclick="window.close()">Click here to proceed</a>.</body>'
+  +'<script>google.script.host.setHeight(40);google.script.host.setWidth(410)</script>'
+  +'</html>')
+  .setWidth( 90 ).setHeight( 1 );
+  SpreadsheetApp.getUi().showModalDialog( html, "Opening ..." );
+}
+
+
 // Open a spreadsheed by it's ID
 function openSpreadsheet(ssID) {
   var toOpenSS = SpreadsheetApp.openById(ssID);
@@ -28,26 +42,26 @@ function openSpreadsheet(ssID) {
 }
 
 // Clears content of a range
-function clearContent(sheet, startCell, endCell) {
-  SpreadsheetApp.getActive().getActiveSheet().getRange(getRangeString(sheet, startCell, endCell)).clearContent();
+function clearContent(spreadsheet, sheet, startCell, endCell) {
+  spreadsheet.getRange(getRangeString(sheet, startCell, endCell)).clearContent();
 }
 
 // Returns the values of a range of cells in the form of a array
-function getValues(sheet, startCell, endCell) {
-  return SpreadsheetApp.getActive().getActiveSheet().getRange(getRangeString(sheet, startCell, endCell)).getValues();
+function getValues(spreadsheet, sheet, startCell, endCell) {
+  return spreadsheet.getRange(getRangeString(sheet, startCell, endCell)).getValues();
 }
 // Returns the value of a single cell
-function getValue(sheet, startCell) {
-  return SpreadsheetApp.getActive().getActiveSheet().getRange(getRangeString(sheet, startCell, "")).getValue();
+function getValue(spreadsheet, sheet, startCell) {
+  return spreadsheet.getRange(getRangeString(sheet, startCell, "")).getValue();
 }
 
 // Sets the value of a group of cells
-function setValues(sheet, startCell, endCell, values) {
-  SpreadsheetApp.getActive().getActiveSheet().getRange(getRangeString(sheet, startCell, endCell)).setValues(values);
+function setValues(spreadsheet, sheet, startCell, endCell, values) {
+  spreadsheet.getRange(getRangeString(sheet, startCell, endCell)).setValues(values);
 }
 // Sets the value of a single cells
-function setValue(sheet, startCell, value) {
-  SpreadsheetApp.getActive().getActiveSheet().getRange(getRangeString(sheet, startCell, "")).setValue(value);
+function setValue(spreadsheet, sheet, startCell, value) {
+  spreadsheet.getRange(getRangeString(sheet, startCell, "")).setValue(value);
 }
 
 // Returns the string of a range
