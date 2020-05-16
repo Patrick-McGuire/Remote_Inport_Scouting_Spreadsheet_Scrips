@@ -3,7 +3,6 @@ var mediumBrother = 'Medium Brother';
 var inputs = 'Inputs';
 var cmdLogs = 'CMD Logs';
 var tbaImport = 'TBA Import';
-var manager = 'Manager';
 // Commands
 var enterDataCommand = '/enterdata';
 var importTeamsCommand = '/importteams';
